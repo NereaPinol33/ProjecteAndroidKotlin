@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.TaskApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/pink_300</item>
+        <item name="colorPrimaryVariant">@color/pink_700</item>
+        <item name="colorAccent">@color/pink_500</item>
+        <item name="android:windowBackground">@color/pink_50</item>
+        <item name="android:textColorPrimary">@color/black</item>
+    </style>
+</resources>
