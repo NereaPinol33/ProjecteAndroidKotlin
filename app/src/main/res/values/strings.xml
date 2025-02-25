@@ -5,6 +5,6 @@
     <string name="save_button">Save</string>
     <string name="about_button">About</string>
     <string name="close_button">Close</string>
-    <string name="about_text">Created by Natalia Nowak\nTask Management App\nVersion 1.0\nFebruary 2025</string>
+    <string name="about_text">Created by Nerea Piñol\nTask Management App\nVersion 1.0\nFebruary 2025</string>
     <string name="todo">TODO</string>
 </resources>

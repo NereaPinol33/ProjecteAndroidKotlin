@@ -51,7 +51,7 @@ fun TaskApp() {
             if (showSplash) {
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                     Image(
-                        painter = painterResource(id = R.drawable.notebook_loading),
+                        painter = painterResource(id = R.drawable.petly_loading),
                         contentDescription = "Too Do List Logo",
                         modifier = Modifier
                             .padding(16.dp)

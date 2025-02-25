@@ -77,7 +77,7 @@ fun AddEditTaskScreen(
         if (isLoading) {
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                 Image(
-                    painter = painterResource(id = R.drawable.notebook_loading),
+                    painter = painterResource(id = R.drawable.petly_loading),
                     contentDescription = "Loading Notebook",
                     modifier = Modifier
                         .padding(16.dp)
