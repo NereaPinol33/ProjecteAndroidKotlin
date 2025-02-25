@@ -1,10 +1,21 @@
 <resources>
-    <string name="app_name">TaskApp</string>
-    <string name="hint_title">Task Title</string>
-    <string name="hint_description">Task Description</string>
+    <string name="app_name">CatApp</string>
+    <string name="hint_title">Cat Name</string>
+    <string name="hint_description">Cat Age or Description</string>
+    <string name="hint_color">Cat Color (e.g., Negro, Blanco)</string>
+    <string name="hint_personality">Cat Personality (e.g., Juguetón, Tímido)</string>
     <string name="save_button">Save</string>
     <string name="about_button">About</string>
     <string name="close_button">Close</string>
-    <string name="about_text">Created by Nerea Piñol\nTask Management App\nVersion 1.0\nFebruary 2025</string>
+    <string name="about_text">Created by Nerea Piñol\nCat Management App\nVersion 1.0\nFebruary 2025</string>
     <string name="todo">TODO</string>
+    <string name="delete_button_desc">Eliminar gato</string>
+    <string name="edit_button_desc">Editar gato</string>
+    <string name="cat_image_desc">Imagen del gato</string>
+    <string name="back_button_desc">Back to Cat List</string>
+    <string name="content_desc_title">Field to enter the cat\'s name</string>
+    <string name="content_desc_description">Field to enter the cat\'s age or description</string>
+    <string name="content_desc_color">Field to enter the cat\'s color</string>
+    <string name="content_desc_personality">Field to enter the cat\'s personality</string>
+    <string name="content_desc_save">Button to save the cat information</string>
 </resources>

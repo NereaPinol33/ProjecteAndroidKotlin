@@ -6,6 +6,9 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -34,25 +37,28 @@ fun TaskListScreen(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = onAddTask,
-                containerColor = MaterialTheme.colorScheme.secondary // pink_500 para el FAB
+                containerColor = MaterialTheme.colorScheme.secondary // cat_orange para el FAB
             ) {
-                Text("+", color = MaterialTheme.colorScheme.onSecondary) // Texto blanco sobre pink_500
+                Text("+", color = MaterialTheme.colorScheme.onSecondary) // Texto blanco
             }
         },
         topBar = {
             TopAppBar(
-                title = { Text("Task List", color = MaterialTheme.colorScheme.onPrimary) },
+                title = { Text("Cat List", color = MaterialTheme.colorScheme.onPrimary) },
                 navigationIcon = {},
                 actions = {
-                    Button(
-                        onClick = { showAboutDialog = true },
-                        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary) // pink_500
+                    IconButton(
+                        onClick = { showAboutDialog = true }
                     ) {
-                        Text("About", color = MaterialTheme.colorScheme.onSecondary) // Texto blanco
+                        Icon(
+                            imageVector = Icons.Default.Edit, // Usamos ícono de edición para "About"
+                            contentDescription = "About",
+                            tint = MaterialTheme.colorScheme.onPrimary
+                        )
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primary // pink_300
+                    containerColor = MaterialTheme.colorScheme.primary // cat_gray
                 )
             )
         }
@@ -61,7 +67,7 @@ fun TaskListScreen(
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                 Image(
                     painter = painterResource(id = R.drawable.petly_loading),
-                    contentDescription = "Loading Notebook",
+                    contentDescription = "Loading Cat",
                     modifier = Modifier
                         .size(150.dp)
                         .padding(16.dp)
@@ -72,12 +78,13 @@ fun TaskListScreen(
                 modifier = Modifier
                     .padding(padding)
                     .padding(16.dp)
-                    .background(MaterialTheme.colorScheme.background) // pink_50 como fondo
+                    .background(MaterialTheme.colorScheme.background) // cat_light_gray como fondo
             ) {
                 items(tasks) { task ->
-                    TaskItem(
+                    CatItem(
                         task = task,
                         onClick = { onEditTask(task) },
+                        onEdit = { onEditTask(task) },
                         onDelete = { viewModel.delete(task) }
                     )
                 }
@@ -91,7 +98,7 @@ fun TaskListScreen(
 }
 
 @Composable
-fun TaskItem(task: Task, onClick: () -> Unit, onDelete: () -> Unit) {
+fun CatItem(task: Task, onClick: () -> Unit, onEdit: () -> Unit, onDelete: () -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -112,17 +119,41 @@ fun TaskItem(task: Task, onClick: () -> Unit, onDelete: () -> Unit) {
                     color = MaterialTheme.colorScheme.onSurface
                 )
                 Text(
-                    task.description,
+                    "${task.description} (${task.color}, ${task.personality})",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurface
                 )
             }
-            Button(
-                onClick = onDelete,
-                colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.error)
-            ) {
-                Text("Delete", color = MaterialTheme.colorScheme.onError)
+            Row {
+                IconButton(onClick = onEdit) {
+                    Icon(
+                        imageVector = Icons.Default.Edit,
+                        contentDescription = "Edit Cat",
+                        tint = MaterialTheme.colorScheme.primary
+                    )
+                }
+                IconButton(onClick = onDelete) {
+                    Icon(
+                        imageVector = Icons.Default.Delete,
+                        contentDescription = "Delete Cat",
+                        tint = MaterialTheme.colorScheme.error
+                    )
+                }
             }
         }
     }
+}
+
+@Composable
+fun AboutDialog(onDismiss: () -> Unit) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text("About") },
+        text = { Text("Created by Nerea Piñol\nCat Management App\nVersion 1.0\nFebruary 2025") },
+        confirmButton = {
+            TextButton(onClick = onDismiss) {
+                Text("Close")
+            }
+        }
+    )
 }
