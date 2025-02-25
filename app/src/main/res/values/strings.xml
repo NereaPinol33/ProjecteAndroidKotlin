@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CatApp</string>
+    <string name="app_name">Petly</string>
     <string name="hint_title">Cat Name</string>
     <string name="hint_description">Cat Age or Description</string>
     <string name="hint_color">Cat Color (e.g., Negro, Blanco)</string>
