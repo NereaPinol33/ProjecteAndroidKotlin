@@ -33,3 +33,4 @@ En versions avançades, l’aplicació es transformarà en una biblioteca de lli
    ```bash
    git clone git@github.com:<teu-usuari>/TaskApp.git
    cd TaskApp
+# ProjecteKotlinToDoList
