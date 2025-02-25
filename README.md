@@ -34,3 +34,4 @@ En versions avançades, l’aplicació es transformarà en una biblioteca de lli
    git clone git@github.com:<teu-usuari>/TaskApp.git
    cd TaskApp
 # ProjecteKotlinToDoList
+# ProjecteAndroidKotlin
